@@ -1,0 +1,58 @@
+@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Amulya-Bold';
+  src: url('fonts/Amulya/WEB/fonts/Amulya-Bold.woff2') format('woff2'),
+    url('fonts/Amulya/WEB/fonts/Amulya-Bold.woff') format('woff'),
+    url('fonts/Amulya/WEB/fonts/Amulya-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Synonym-Regular';
+  src: url('fonts/Synonym/WEB/fonts/Synonym-Regular.woff2') format('woff2'),
+    url('fonts/Synonym/WEB/fonts/Synonym-Regular.woff') format('woff'),
+    url('fonts/Synonym/WEB/fonts/Synonym-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
