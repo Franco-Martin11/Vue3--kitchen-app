@@ -1,41 +1,58 @@
 <template>
-  <section class="min-h-screen m-[0_auto] bg-color-accent flex flex-col gap-4">
-    <NavigationHeaderContainer />
-    <article class="mt-4 flex flex-col gap-8 w-full">
-      <div class="flex px-4 flex-row gap-4 w-full h-fit relative">
+  <LayoutContainer>
+    <template #content>
+      <article
+        v-motion
+        :initial="{
+          opacity: 0,
+          y: 125
+        }"
+        :enter="{
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: 'spring',
+            stiffness: '50',
+            delay: 300
+          }
+        }"
+        class="mt-4 flex flex-col gap-8 w-full"
+      >
+        <div class="flex px-4 flex-row gap-4 w-full h-fit relative">
+          <div class="flex flex-1 flex-col gap-4">
+            <p class="font-body text-md text-bg-gray">
+              Recipes > Turkey burger with seet potatos fries
+            </p>
+            <h2 class="font-heading text-6xl text-white max-w-[800px]">
+              Turkey burger with seet potatos fries
+            </h2>
 
-        <div class="flex flex-1 flex-col gap-4">
-          <p class="font-body text-md text-bg-gray">Recipes > Turkey burger with seet potatos fries</p>
-          <h2 class="font-heading text-6xl text-white max-w-[800px]">Turkey burger with seet potatos fries</h2>
-
-          <div class="flex flex-row gap-2 wrap items-center">
-
-            <div class="flex flex-row gap-6 w-full">
-              <BagdeInstruction :heading="'Total Time'" :info="'30m'" />
-              <BagdeInstruction :heading="'Prep Time'" :info="'30m'" />
-              <BagdeInstruction :heading="'Chill Time'" :info="'30m'" />
-              <BagdeInstruction :heading="'Cook Time'" :info="'30m'" />
-            </div>
-            <div class="flex flex-col">
-              <p class="font-body text-md text-bg-color">Total Reviews</p>
-              <div class="flex flex-row gap-4 font-heading text-xl text-yellow-500">
-                <p>★</p>
-                <p>★</p>
-                <p>★</p>
-                <p>☆</p>
-                <p>☆</p>
+            <div class="flex flex-row gap-2 wrap items-center">
+              <div class="flex flex-row gap-6 w-full">
+                <BagdeInstruction :heading="'Total Time'" :info="'30m'" />
+                <BagdeInstruction :heading="'Prep Time'" :info="'30m'" />
+                <BagdeInstruction :heading="'Chill Time'" :info="'30m'" />
+                <BagdeInstruction :heading="'Cook Time'" :info="'30m'" />
+              </div>
+              <div class="flex flex-col">
+                <p class="font-body text-md text-bg-color">Total Reviews</p>
+                <div class="flex flex-row gap-4 font-heading text-xl text-yellow-500">
+                  <p>★</p>
+                  <p>★</p>
+                  <p>★</p>
+                  <p>☆</p>
+                  <p>☆</p>
+                </div>
               </div>
             </div>
           </div>
+
+          <picture class="flex-1">
+            <img src="/HeaderIMage.jpg" class="h-96 w-96 absolute top-0 right-4" />
+          </picture>
         </div>
-
-        <picture class="flex-1">
-          <img src="/HeaderIMage.jpg" class="h-96 w-96 absolute top-0 right-4" />
-        </picture>
-
-      </div>
-      <div class="w-full h-72 bg-bg-color"></div>
-      <!-- <RadioGroup v-model="selected">
+        <div class="w-full h-72 bg-bg-color"></div>
+        <!-- <RadioGroup v-model="selected">
         <RadioGroupLabel class="sr-only">Server size</RadioGroupLabel>
         <div class="space-y-2">
           <RadioGroupOption as="template" v-for="plan in plans" :key="plan.name" :value="plan"
@@ -71,41 +88,34 @@
           </RadioGroupOption>
         </div>
       </RadioGroup> -->
-    </article>
-  </section>
+      </article>
+    </template>
+  </LayoutContainer>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import {
-  RadioGroup,
-  RadioGroupLabel,
-  RadioGroupDescription,
-  RadioGroupOption
-} from '@headlessui/vue'
-import NavigationHeaderContainer from '@/components/NavigationHeader/NavigationHeaderContainer.vue';
-import BagdeInstruction from '@/components/BagdeInstruction.vue';
+import BagdeInstruction from '@/components/BagdeInstruction.vue'
+import LayoutContainer from '@/layout/LayoutContainer.vue'
+// const plans = [
+//   {
+//     name: 'Startup',
+//     ram: '12GB',
+//     cpus: '6 CPUs',
+//     disk: '160 GB SSD disk'
+//   },
+//   {
+//     name: 'Business',
+//     ram: '16GB',
+//     cpus: '8 CPUs',
+//     disk: '512 GB SSD disk'
+//   },
+//   {
+//     name: 'Enterprise',
+//     ram: '32GB',
+//     cpus: '12 CPUs',
+//     disk: '1024 GB SSD disk'
+//   }
+// ]
 
-const plans = [
-  {
-    name: 'Startup',
-    ram: '12GB',
-    cpus: '6 CPUs',
-    disk: '160 GB SSD disk'
-  },
-  {
-    name: 'Business',
-    ram: '16GB',
-    cpus: '8 CPUs',
-    disk: '512 GB SSD disk'
-  },
-  {
-    name: 'Enterprise',
-    ram: '32GB',
-    cpus: '12 CPUs',
-    disk: '1024 GB SSD disk'
-  }
-]
-
-const selected = ref(plans[0])
+// const selected = ref(plans[0])
 </script>
