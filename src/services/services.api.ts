@@ -1,3 +1,4 @@
+import type { DataAPI } from '@/types/apiData'
 import $axios from './axios.api'
 import { paramsSerializer } from '@/utils/paramsSerializer'
 
