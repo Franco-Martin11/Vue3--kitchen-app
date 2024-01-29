@@ -16,42 +16,10 @@
             delay: 300
           }
         }"
-        class="mt-4 flex flex-col gap-8 w-full"
+        class="flex flex-col w-full"
       >
-        <div class="flex px-4 flex-row gap-4 w-full h-fit relative">
-          <div class="flex flex-1 flex-col gap-4">
-            <p class="font-body text-md text-bg-gray">
-              Recipes > Turkey burger with seet potatos fries
-            </p>
-            <h2 class="font-heading text-6xl text-white max-w-[800px]">
-              Turkey burger with seet potatos fries
-            </h2>
-
-            <div class="flex flex-row gap-2 wrap items-center">
-              <div class="flex flex-row gap-6 w-full">
-                <BagdeInstruction :heading="'Total Time'" :info="'30m'" />
-                <BagdeInstruction :heading="'Prep Time'" :info="'30m'" />
-                <BagdeInstruction :heading="'Chill Time'" :info="'30m'" />
-                <BagdeInstruction :heading="'Cook Time'" :info="'30m'" />
-              </div>
-              <div class="flex flex-col">
-                <p class="font-body text-md text-bg-color">Total Reviews</p>
-                <div class="flex flex-row gap-4 font-heading text-xl text-yellow-500">
-                  <p>★</p>
-                  <p>★</p>
-                  <p>★</p>
-                  <p>☆</p>
-                  <p>☆</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <picture class="flex-1">
-            <img src="/HeaderIMage.jpg" class="h-96 w-96 absolute top-0 right-4" />
-          </picture>
-        </div>
-        <div class="w-full h-72 bg-bg-color"></div>
+        <HeadingTitle />
+        <HeadingDescription />
         <!-- <RadioGroup v-model="selected">
         <RadioGroupLabel class="sr-only">Server size</RadioGroupLabel>
         <div class="space-y-2">
@@ -94,8 +62,9 @@
 </template>
 
 <script setup lang="ts">
-import BagdeInstruction from '@/components/BagdeInstruction.vue'
 import LayoutContainer from '@/layout/LayoutContainer.vue'
+import HeadingTitle from './components/HeadingTitle.vue'
+import HeadingDescription from './components/HeadingDescription.vue'
 // const plans = [
 //   {
 //     name: 'Startup',
