@@ -1,23 +1,18 @@
 
 <template>
-    <div class="flex flex-col  p-8  flex-[1_1_375px] h-full w-full gap-4 items-start">
+    <div class="flex flex-col p-4  md:p-0 md:py-8 flex-[1_1_375px] w-full gap-4 items-start">
         <TitleHeading heading-text=" How to make it" />
-        <StepByStep :index="1"
-            description="Using a teaspoon, mix all the ingredientes together in a food containes or a medium sizen mixing bowl" />
-        <StepByStep :index="2"
-            description="Using a teaspoon, mix all the ingredientes together in a food containes or a medium sizen mixing bowl" />
-        <StepByStep :index="3"
-            description="Using a teaspoon, mix all the ingredientes together in a food containes or a medium sizen mixing bowl" />
-        <StepByStep :index="4"
-            description="Using a teaspoon, mix all the ingredientes together in a food containes or a medium sizen mixing bowl" />
-        <StepByStep :index="5"
-            description="Using a teaspoon, mix all the ingredientes together in a food containes or a medium sizen mixing bowl" />
+
+        <template :key="index" v-for="{ description, index } in DataStep">
+            <StepByStep :index="index" :description="description" />
+        </template>
+
     </div>
 </template>
 
 <script setup lang="ts">
 import TitleHeading from '@/components/TitleHeading.vue';
 import StepByStep from './StepByStep.vue';
-
+import { Steps as DataStep } from '@/constants/Steps';
 
 </script>

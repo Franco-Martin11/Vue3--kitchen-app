@@ -1,6 +1,6 @@
 
 <template>
-    <div class="flex flex-row gap-4 w-full flex-wrap-reverse">
+    <div class="flex flex-row gap-4 h-fit w-full flex-wrap-reverse">
         <StepsContainer />
         <IngredientContainer />
     </div>

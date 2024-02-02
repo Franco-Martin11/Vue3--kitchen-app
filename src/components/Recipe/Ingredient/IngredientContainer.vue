@@ -1,6 +1,6 @@
 
 <template>
-    <div class="flex flex-col flex-[1_0_375px] gap-4 h-full w-full p-8 bg-[#F0ECEB]">
+    <div class="flex flex-col flex-[1_1_375px] gap-4 w-full p-4 md:p-8 bg-[#F0ECEB]">
         <TitleHeading heading-text="Ingredients" />
         <IngredientCard />
     </div>
