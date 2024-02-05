@@ -8,7 +8,7 @@
 
         </picture>
         <div class="absolute -bottom-4 hover:shadow-2xl">
-            <RouterLink to="/Product">
+            <RouterLink to="/test/s=52897">
                 <RedirectCard />
             </RouterLink>
         </div>
