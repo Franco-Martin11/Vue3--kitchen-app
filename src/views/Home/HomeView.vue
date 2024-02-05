@@ -2,12 +2,10 @@
 <template>
     <LayoutContainer>
         <template #content>
-            <HeaderTextContainer />
-            <HeaderFigureContainer />
-            <RouterLink to="/Product">
-
-                <RedirectCard />
-            </RouterLink>
+            <div class="flex flex-wrap gap-4 justify-center flex-1">
+                <HeaderTextContainer />
+                <HeaderFigureContainer />
+            </div>
         </template>
     </LayoutContainer>
 </template>
@@ -16,8 +14,5 @@
 import LayoutContainer from '@/layout/LayoutContainer.vue';
 import HeaderFigureContainer from './components/HeaderFigureContainer.vue';
 import HeaderTextContainer from './components/HeaderTextContainer.vue';
-import RedirectCard from '@/assets/icons/RedirectCard.svg?component'
-import { RouterLink } from 'vue-router';
-
 
 </script>

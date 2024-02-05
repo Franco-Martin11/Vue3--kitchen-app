@@ -1,8 +1,11 @@
 <template>
   <NavigationHeaderContainer />
-  <section class="flex flex-col min-h-screen m-[0_auto] gap-4">
+  <section class="flex flex-col min-h-[80.5vh] m-[0_auto] gap-4">
     <slot name="content"></slot>
   </section>
+  <footer class="flex p-4 min-h-[48px] items-center justify-between flex-row gap-2 w-full bg-color-accent">
+    <h1 class="font-heading text-xl md:text-2xl text-white">KitchenPal</h1>
+  </footer>
 </template>
 
 <script setup lang="ts">

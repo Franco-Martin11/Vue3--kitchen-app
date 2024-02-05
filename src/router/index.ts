@@ -20,7 +20,7 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/product',
+      path: '/product:idMeal',
       name: 'product',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -28,13 +28,21 @@ const router = createRouter({
       component: () => import('../views/Product/ProductView.vue')
     },
     {
-      path: '/prueba',
-      name: 'prueba',
+      path: '/test/s=:idMeal',
+      name: 'product',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/Prueba.vue')
-    }
+      component: () => import('../views/PruebaMeals.vue')
+    },
+    // {
+    //   path: '/prueba',
+    //   name: 'prueba',
+    //   // route level code-splitting
+    //   // this generates a separate chunk (About.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component: () => import('../views/Prueba.vue')
+    // }
   ]
 })
 
