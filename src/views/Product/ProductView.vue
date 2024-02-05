@@ -1,18 +1,23 @@
 <template>
   <LayoutContainer>
     <template #content>
-      <article v-motion :initial="{
-        opacity: 0,
-        y: 125
-      }" :enter="{
-  opacity: 1,
-  y: 0,
-  transition: {
-    type: 'spring',
-    stiffness: '50',
-    delay: 300
-  }
-}" class="flex flex-col w-full">
+      <article
+        v-motion
+        :initial="{
+          opacity: 0,
+          y: 125
+        }"
+        :enter="{
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: 'spring',
+            stiffness: '50',
+            delay: 300
+          }
+        }"
+        class="flex flex-col w-full"
+      >
         <HeadingTitle />
         <HeadingDescription />
 

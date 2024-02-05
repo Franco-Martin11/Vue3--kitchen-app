@@ -1,8 +1,7 @@
-
 <template>
-    <HeroFigure />
+  <HeroFigure />
 </template>
 
 <script setup lang="ts">
-import HeroFigure from './HeroFigure.vue';
+import HeroFigure from './HeroFigure.vue'
 </script>
