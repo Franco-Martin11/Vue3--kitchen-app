@@ -1,7 +1,7 @@
 <template>
   <LayoutContainer>
     <template #content>
-      <div class="flex flex-wrap gap-4 justify-center flex-1">
+      <div class="flex flex-wrap md:gap-4 justify-center flex-1 my-8 md:my-2 h-full">
         <HeaderTextContainer />
         <HeaderFigureContainer />
       </div>

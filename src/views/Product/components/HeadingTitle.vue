@@ -1,18 +1,18 @@
 <template>
   <div
-    class="flex px-4 py-8 flex-col gap-4 w-full bg-color-accent h-fit relative border-t border-bg-color"
+    class="flex flex-1 h-full px-4 py-8 flex-col gap-4 w-full bg-color-accent relative border-y border-bg-color"
   >
-    <p class="font-body text-md text-bg-gray">Recipes > Turkey burger with seet potatos fries</p>
+    <p class="font-body text-md text-bg-gray">Recipes > {{ strArea }}</p>
     <div class="flex flex-1 flex-col md:flex-row gap-4 items-center">
       <picture class="w-60 sm:w-80">
-        <img src="/turkeyBurger.jpeg" class="aspect-square m-[0_auto]" />
+        <img :src="strMealThumb" :alt="strMeal" class="aspect-square m-[0_auto]" />
       </picture>
 
       <div class="flex flex-col gap-4">
         <h2
           class="text-center lg:text-start font-heading text-4xl sm:text-5xl lg:text-6xl text-white max-w-[800px]"
         >
-          Turkey burger with seet potatos fries
+          {{ strMeal }}
         </h2>
 
         <div
@@ -44,4 +44,6 @@
 
 <script setup lang="ts">
 import BagdeInstruction from '@/components/BagdeInstruction.vue'
+import type { Meal } from '@/types/apiData'
+defineProps<Pick<Meal, 'strMeal' | 'strMealThumb' | 'idMeal' | 'strArea'>>()
 </script>

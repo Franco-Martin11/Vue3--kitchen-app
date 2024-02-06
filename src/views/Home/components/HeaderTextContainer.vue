@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-[1_0_375px] max-w-2xl px-4 py-8 mt-2 lg:mt-0 flex-col gap-4 justify-center items-center lg:items-start text-center lg:text-start"
+    class="flex flex-[1_0_375px] max-w-2xl px-4 py-8 lg:mt-0 flex-col gap-4 justify-center items-center lg:items-start text-center lg:text-start"
   >
     <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl max-w-[800px]">
       Let´s Start Cooking With Popoular Recipes

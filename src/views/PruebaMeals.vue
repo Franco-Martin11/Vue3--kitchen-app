@@ -1,23 +1,50 @@
 <template>
-  <div class="">
-    <p v-if="isLoading">Loading...</p>
-    <p v-else-if="isError">error : {{ JSON.stringify(isError.value) }}...</p>
-    <p v-else-if="!meals">No se encontro la receta</p>
-    <template v-else>
-      <p>{{ JSON.stringify(meals) }}</p>
-      <template :key="idMeal" v-for="{ strMealThumb, strMeal, idMeal } in meals">
-        <h1>{{ strMeal }}</h1>
-        <img :src="strMealThumb" :alt="strMeal" />
+  <LayoutContainer>
+    <template #content>
+      <!-- <HeadingDescription /> -->
+
+      <p v-if="isLoading">Loading...</p>
+      <p v-else-if="isError">error : {{ JSON.stringify(isError.value) }}...</p>
+      <p v-else-if="!meals">No se encontro la receta</p>
+      <template v-else>
+        <template :key="idMeal" v-for="{ strMealThumb, strMeal, idMeal, strArea } in meals">
+          <article
+            v-motion
+            :initial="{
+              opacity: 0,
+              y: 115
+            }"
+            :enter="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                stiffness: '50',
+                delay: 100
+              }
+            }"
+            class="flex flex-col w-full"
+          >
+            <HeadingTitle
+              :str-meal="strMeal"
+              :str-area="strArea"
+              :str-meal-thumb="strMealThumb"
+              :id-meal="idMeal"
+            />
+          </article>
+        </template>
       </template>
     </template>
-  </div>
+  </LayoutContainer>
 </template>
 
 <script setup lang="ts">
+import LayoutContainer from '@/layout/LayoutContainer.vue'
 import type { Meal, MealsResponse } from '@/types/apiData'
 import axios, { type AxiosResponse } from 'axios'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import HeadingTitle from './Product/components/HeadingTitle.vue'
 
 const { params } = useRoute()
 

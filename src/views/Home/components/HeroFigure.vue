@@ -9,8 +9,8 @@
         :alt="images.headerFigure.imageAlt"
       />
     </picture>
-    <div class="absolute -bottom-4 hover:shadow-2xl">
-      <RouterLink to="/test/s=52897">
+    <div class="absolute -bottom-4 shadow-2xl md:shadow-md hover:shadow-2xl">
+      <RouterLink to="/product/s=52897">
         <RedirectCard />
       </RouterLink>
     </div>
