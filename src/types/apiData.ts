@@ -57,3 +57,22 @@ export interface Meal {
 export interface MealsResponse {
   meals: Meal[]
 }
+
+export interface StepMeasure {
+  strIngredients: string[]
+  strMeasure: string[]
+}
+
+export interface ApiUrls {
+  searchMealByName: (name:string) => string
+  listAllMealsByFirstLetter: (firstLetter:string) => string
+  lookupMealById: (id?:number) => string
+  lookupRandomMeal: () => string
+  listAllMealCategories: () => string
+  listAllCategories: () => string
+  listAllAreas: () => string
+  listAllIngredients: () => string
+  filterByMainIngredient: () => string
+  filterByCategory: () => string
+  filterByArea: () => string
+}
