@@ -7,20 +7,34 @@
       <p v-else-if="isError">error : {{ JSON.stringify(isError.value) }}...</p>
       <p v-else-if="!meals">No se encontro la receta</p>
       <template v-else>
-        <template :key="idMeal" v-for="{ strMealThumb, strMeal, idMeal, strArea } in meals">
-          <article v-motion :initial="{
-            opacity: 0,
-            y: 115
-          }" :enter="{
-  opacity: 1,
-  y: 0,
-  transition: {
-    type: 'spring',
-    stiffness: '50',
-    delay: 100
-  }
-}" class="flex flex-col w-full">
-            <HeadingTitle :str-meal="strMeal" :str-area="strArea" :str-meal-thumb="strMealThumb" :id-meal="idMeal" />
+        <template
+          :key="idMeal"
+          v-for="{ strMealThumb, strMeal, idMeal, strArea, strYoutube } in meals"
+        >
+          <article
+            v-motion
+            :initial="{
+              opacity: 0,
+              y: 115
+            }"
+            :enter="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                stiffness: '50',
+                delay: 100
+              }
+            }"
+            class="flex flex-col w-full"
+          >
+            <HeadingTitle
+              :str-meal="strMeal"
+              :str-area="strArea"
+              :str-meal-thumb="strMealThumb"
+              :id-meal="idMeal"
+              :str-youtube="strYoutube"
+            />
             <!-- <IngredientContainer :meals="fillData" /> -->
           </article>
         </template>
@@ -35,8 +49,8 @@ import type { Meal, MealsResponse } from '@/types/apiData'
 import { type AxiosResponse } from 'axios'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import HeadingTitle from './Product/components/HeadingTitle.vue'
 import $axios, { apiUrls } from '@/services/axios.api'
+import HeadingTitle from './Recipe/components/HeadingTitle.vue'
 
 const { params } = useRoute()
 
@@ -45,7 +59,6 @@ const isLoading = ref(true)
 const isError = ref<null | any>(null)
 onMounted(async () => {
   try {
-
     const response: AxiosResponse<MealsResponse> = await $axios.get(apiUrls.lookupMealById(), {
       params: {
         i: params.idMeal
@@ -59,5 +72,4 @@ onMounted(async () => {
     isError.value = error
   }
 })
-
 </script>

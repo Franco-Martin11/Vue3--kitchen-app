@@ -71,4 +71,3 @@ export const apiUrls: ApiUrls = {
 //   console.log(filterData)
 //   return filterData
 // }
-

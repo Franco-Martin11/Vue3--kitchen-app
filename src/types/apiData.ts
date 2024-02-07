@@ -1,4 +1,4 @@
-export interface Meal {
+export interface Meal extends RecipeInformation {
   idMeal: string
   strMeal: string
   strDrinkAlternate: string | null
@@ -8,46 +8,6 @@ export interface Meal {
   strMealThumb: string
   strTags: string
   strYoutube: string
-  strIngredient1: string
-  strIngredient2: string
-  strIngredient3: string
-  strIngredient4: string
-  strIngredient5: string
-  strIngredient6: string
-  strIngredient7: string
-  strIngredient8: string
-  strIngredient9: string
-  strIngredient10: string
-  strIngredient11: string
-  strIngredient12: string
-  strIngredient13: string
-  strIngredient14: string
-  strIngredient15: string
-  strIngredient16: string | null
-  strIngredient17: string | null
-  strIngredient18: string | null
-  strIngredient19: string | null
-  strIngredient20: string | null
-  strMeasure1: string
-  strMeasure2: string
-  strMeasure3: string
-  strMeasure4: string
-  strMeasure5: string
-  strMeasure6: string
-  strMeasure7: string
-  strMeasure8: string
-  strMeasure9: string
-  strMeasure10: string
-  strMeasure11: string
-  strMeasure12: string
-  strMeasure13: string
-  strMeasure14: string
-  strMeasure15: string
-  strMeasure16: string | null
-  strMeasure17: string | null
-  strMeasure18: string | null
-  strMeasure19: string | null
-  strMeasure20: string | null
   strSource: string | null
   strImageSource: string | null
   strCreativeCommonsConfirmed: string | null
@@ -57,16 +17,59 @@ export interface Meal {
 export interface MealsResponse {
   meals: Meal[]
 }
+type Ingredient = string | number | null
 
+export interface RecipeInformation {
+  strIngredient1: Ingredient
+  strIngredient2: Ingredient
+  strIngredient3: Ingredient
+  strIngredient4: Ingredient
+  strIngredient5: Ingredient
+  strIngredient6: Ingredient
+  strIngredient7: Ingredient
+  strIngredient8: Ingredient
+  strIngredient9: Ingredient
+  strIngredient10: Ingredient
+  strIngredient11: Ingredient
+  strIngredient12: Ingredient
+  strIngredient13: Ingredient
+  strIngredient14: Ingredient
+  strIngredient15: Ingredient
+  strIngredient16: Ingredient
+  strIngredient17: Ingredient
+  strIngredient18: Ingredient
+  strIngredient19: Ingredient
+  strIngredient20: Ingredient
+  strMeasure1: Ingredient
+  strMeasure2: Ingredient
+  strMeasure3: Ingredient
+  strMeasure4: Ingredient
+  strMeasure5: Ingredient
+  strMeasure6: Ingredient
+  strMeasure7: Ingredient
+  strMeasure8: Ingredient
+  strMeasure9: Ingredient
+  strMeasure10: Ingredient
+  strMeasure11: Ingredient
+  strMeasure12: Ingredient
+  strMeasure13: Ingredient
+  strMeasure14: Ingredient
+  strMeasure15: Ingredient
+  strMeasure16: Ingredient
+  strMeasure17: Ingredient
+  strMeasure18: Ingredient
+  strMeasure19: Ingredient
+  strMeasure20: Ingredient
+}
 export interface StepMeasure {
   strIngredients: string[]
   strMeasure: string[]
 }
 
 export interface ApiUrls {
-  searchMealByName: (name:string) => string
-  listAllMealsByFirstLetter: (firstLetter:string) => string
-  lookupMealById: (id?:number) => string
+  searchMealByName: (name: string) => string
+  listAllMealsByFirstLetter: (firstLetter: string) => string
+  lookupMealById: (id?: number) => string
   lookupRandomMeal: () => string
   listAllMealCategories: () => string
   listAllCategories: () => string

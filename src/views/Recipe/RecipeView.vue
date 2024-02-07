@@ -7,22 +7,39 @@
       <p v-else-if="isError">error : {{ JSON.stringify(isError.value) }}...</p>
       <p v-else-if="!meals">No se encontro la receta</p>
       <template v-else>
-        <template :key="idMeal" v-for="{ strMealThumb, strMeal, idMeal, strArea, strInstructions } in meals">
-          <article v-motion :initial="{
-            opacity: 0,
-            y: 115
-          }" :enter="{
-  opacity: 1,
-  y: 0,
-  transition: {
-    type: 'spring',
-    stiffness: '50',
-    delay: 100
-  }
-}" class="flex flex-col w-full flex-1">
-            <HeadingTitle :str-meal="strMeal" :str-area="strArea" :str-meal-thumb="strMealThumb" :id-meal="idMeal" />
+        <template
+          :key="idMeal"
+          v-for="{ strMealThumb, strMeal, idMeal, strArea, strInstructions, strYoutube } in meals"
+        >
+          <article
+            v-motion
+            :initial="{
+              opacity: 0,
+              y: 115
+            }"
+            :enter="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                stiffness: '50',
+                delay: 100
+              }
+            }"
+            class="flex flex-col w-full flex-1"
+          >
+            <HeadingTitle
+              :str-meal="strMeal"
+              :str-area="strArea"
+              :str-meal-thumb="strMealThumb"
+              :id-meal="idMeal"
+              :str-youtube="strYoutube"
+            />
             <div class="flex flex-col w-full min-h-96 bg-slate-100">
-              <StepsContainer :str-instructions="strInstructions" />
+              <RecipeContainer
+                :str-instructions="strInstructions"
+                :str-ingredients="ingredientsFiltered"
+              />
             </div>
           </article>
         </template>
@@ -35,20 +52,20 @@
 import LayoutContainer from '@/layout/LayoutContainer.vue'
 import type { Meal, MealsResponse } from '@/types/apiData'
 import { type AxiosResponse } from 'axios'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import HeadingTitle from './components/HeadingTitle.vue'
-import StepsContainer from '@/components/Recipe/Steps/StepsContainer.vue'
 import $axios, { apiUrls } from '@/services/axios.api'
+import RecipeContainer from '@/components/Recipe/RecipeContainer.vue'
 
 const { params } = useRoute()
 
 const meals = ref<[] | Meal[]>([])
 const isLoading = ref(true)
 const isError = ref<null | any>(null)
+const ingredientsFiltered = computed(() => meals.value.filter((element) => element))
 onMounted(async () => {
   try {
-
     const response: AxiosResponse<MealsResponse> = await $axios.get(apiUrls.lookupMealById(), {
       params: {
         i: params.idMeal

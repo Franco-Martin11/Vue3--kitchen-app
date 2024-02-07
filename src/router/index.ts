@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  scrollBehavior(_to, _from, _savedPosition) {
+  // _to, _from, _savedPosition
+  scrollBehavior() {
     return { top: 0, behavior: 'smooth' }
   },
   routes: [
@@ -20,12 +21,12 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/product/s=:idMeal',
-      name: 'product',
+      path: '/recipe/s=:idMeal',
+      name: 'recipe',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/Product/ProductView.vue')
+      component: () => import('../views/Recipe/RecipeView.vue')
     },
     {
       path: '/test/s=:idMeal',
