@@ -1,25 +1,7 @@
 <template>
-  <div class="max-w-[560px] min-h-[315px] p-1 my-4 w-full mx-auto">
-    <div class="hidden sm:flex justify-center w-full mx-auto">
-      <YoutubeVue3
-        ref="youtube"
-        :videoid="idVideoUrl"
-        :width="480"
-        :height="320"
-        :loop="1"
-        :controls="1"
-
-      />
-    </div>
-    <div class="sm:hidden flex justify-center w-full mx-auto">
-      <YoutubeVue3
-        ref="youtube"
-        :videoid="idVideoUrl"
-        :width="335"
-        :height="280"
-        :loop="1"
-        :controls="1"
-      />
+  <div class="max-w-[560px] min-w-[335px] min-h-[315px] p-1 my-4 w-full mx-auto flex">
+    <div class="flex justify-center w-full mx-auto">
+      <YoutubeVue3 ref="youtube" :videoid="idVideoUrl" :autoplay="0" :width="480" :height="320" :loop="0" :controls="1"  />
     </div>
   </div>
 </template>

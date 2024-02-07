@@ -13,7 +13,7 @@ export default $axios
 export const apiUrls: ApiUrls = {
   searchMealByName: (name) => `/search.php?s=${name}`,
   listAllMealsByFirstLetter: (firstLetter) => `/search.php?f=${firstLetter}`,
-  lookupMealById: (id) => `/lookup.php?i=${id}`,
+  lookupMealById: () => `/lookup.php`,
   lookupRandomMeal: () => 'random.php',
   listAllMealCategories: () => '/categories.php',
   listAllCategories: () => '/list.php?c=list',

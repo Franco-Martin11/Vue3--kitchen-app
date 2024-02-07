@@ -22,11 +22,27 @@ const router = createRouter({
     },
     {
       path: '/recipe/s=:idMeal',
-      name: 'recipe',
+      name: 'recipeByName',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/Recipe/RecipeView.vue')
+    },
+    {
+      path: '/recipe/i=:idMeal',
+      name: 'recipeById',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/Recipe/RecipeView.vue')
+    },
+    {
+      path: '/category/a=:categoryArea',
+      name: 'categoryArea',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/Area/AreaView.vue')
     },
     {
       path: '/test/s=:idMeal',

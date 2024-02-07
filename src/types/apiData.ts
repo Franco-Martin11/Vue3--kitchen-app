@@ -67,9 +67,9 @@ export interface StepMeasure {
 }
 
 export interface ApiUrls {
-  searchMealByName: (name: string) => string
+  searchMealByName: (name?: string) => string
   listAllMealsByFirstLetter: (firstLetter: string) => string
-  lookupMealById: (id?: number) => string
+  lookupMealById: () => string
   lookupRandomMeal: () => string
   listAllMealCategories: () => string
   listAllCategories: () => string

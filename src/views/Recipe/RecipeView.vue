@@ -36,32 +36,36 @@
 import LayoutContainer from '@/layout/LayoutContainer.vue'
 import type { Meal, MealsResponse } from '@/types/apiData'
 import { type AxiosResponse } from 'axios'
-import { computed, onMounted, ref, watchEffect } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import HeadingTitle from './components/HeadingTitle.vue'
 import $axios, { apiUrls } from '@/services/axios.api'
 import RecipeContainer from '@/components/Recipe/RecipeContainer.vue'
 
-const { params } = useRoute()
+const route = useRoute()
 
 const meals = ref<[] | Meal[]>([])
 const isLoading = ref(true)
 const isError = ref<null | any>(null)
 const ingredientsFiltered = computed(() => meals.value.filter((element) => element))
-onMounted(async () => {
-  try {
-    const response: AxiosResponse<MealsResponse> = await $axios.get(apiUrls.lookupMealById(), {
-      params: {
-        i: params.idMeal
-      }
-    })
-    meals.value = response.data.meals
-    isLoading.value = false
-  } catch (error) {
-    console.error('Error fetching data:', error)
-    isLoading.value = false
-    isError.value = error
-  }
-})
 
+const fetchData = async (id: string | number | string[]) => {
+  try {
+    const response: AxiosResponse<MealsResponse> = await $axios.get(apiUrls.searchMealByName(), { params: { s: id } });
+    meals.value = response.data.meals;
+    isLoading.value = false;
+  } catch (error) {
+    console.error('Error al obtener datos:', error);
+    isLoading.value = false;
+    isError.value = error;
+  }
+};
+
+onMounted(() => {
+  fetchData(route.params.idMeal);
+});
+
+watch(() => route.params.idMeal, (newId: string | number | string[]) => {
+  fetchData(newId);
+});
 </script>

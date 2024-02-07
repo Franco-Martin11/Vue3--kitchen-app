@@ -10,7 +10,7 @@
       />
     </picture>
     <div class="absolute -bottom-4 shadow-2xl md:shadow-md hover:shadow-2xl">
-      <RouterLink to="/recipe/s=52897">
+      <RouterLink to="/recipe/i=52897">
         <RedirectCard />
       </RouterLink>
     </div>
