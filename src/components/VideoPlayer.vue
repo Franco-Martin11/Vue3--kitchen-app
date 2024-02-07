@@ -1,7 +1,15 @@
 <template>
   <div class="max-w-[560px] min-w-[335px] min-h-[315px] p-1 my-4 w-full mx-auto flex">
     <div class="flex justify-center w-full mx-auto">
-      <YoutubeVue3 ref="youtube" :videoid="idVideoUrl" :autoplay="0" :width="480" :height="320" :loop="0" :controls="1"  />
+      <YoutubeVue3
+        ref="youtube"
+        :videoid="idVideoUrl"
+        :autoplay="0"
+        :width="480"
+        :height="320"
+        :loop="0"
+        :controls="1"
+      />
     </div>
   </div>
 </template>

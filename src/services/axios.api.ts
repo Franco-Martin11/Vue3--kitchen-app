@@ -11,7 +11,7 @@ const $axios = axios.create({
 export default $axios
 
 export const apiUrls: ApiUrls = {
-  searchMealByName: (name) => `/search.php?s=${name}`,
+  searchMealByName: (name) => (name ? `/search.php?s=${name}` : '/search.php?'),
   listAllMealsByFirstLetter: (firstLetter) => `/search.php?f=${firstLetter}`,
   lookupMealById: () => `/lookup.php`,
   lookupRandomMeal: () => 'random.php',

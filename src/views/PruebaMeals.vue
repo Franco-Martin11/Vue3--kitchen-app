@@ -28,7 +28,7 @@
             }"
             class="flex flex-col w-full"
           >
-          <!-- <MenuOptions/> -->
+            <!-- <MenuOptions/> -->
             <HeadingTitle
               :str-meal="strMeal"
               :str-area="strArea"
@@ -52,7 +52,6 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import $axios, { apiUrls } from '@/services/axios.api'
 import HeadingTitle from './Recipe/components/HeadingTitle.vue'
-import MenuOptions from '@/components/MenuOptions.vue'
 
 const { params } = useRoute()
 
