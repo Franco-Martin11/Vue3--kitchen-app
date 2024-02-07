@@ -7,11 +7,13 @@
     <a href="/" target="_blank">Product</a>
     <a href="/" target="_blank">About</a>
   </nav>
+  <SearchBar/>
   <MenuDrawer />
 </template>
 
 <script setup lang="ts">
 import MenuDrawer from '@/components/MenuDrawer.vue'
+import SearchBar from '@/components/SearchBar.vue'
 </script>
 
 <style scoped></style>

@@ -8,14 +8,15 @@
         :height="320"
         :loop="1"
         :controls="1"
+
       />
     </div>
     <div class="sm:hidden flex justify-center w-full mx-auto">
       <YoutubeVue3
         ref="youtube"
         :videoid="idVideoUrl"
-        :width="375"
-        :height="320"
+        :width="335"
+        :height="280"
         :loop="1"
         :controls="1"
       />

@@ -1,11 +1,11 @@
 <template>
   <section
-    class="flex flex-1 h-full px-2 lg:px-4 py-4 lg:py-8 flex-col gap-4 w-full bg-color-accent relative border-y border-bg-color"
+    class="flex flex-1 h-full px-2 lg:px-4 py-4 lg:py-8 flex-col gap-2 md:gap-4 w-full bg-color-accent relative border-y border-bg-color"
   >
     <p class="font-body text-md text-bg-gray">Recipes > {{ strArea }}</p>
 
     <div
-      class="grid gap-4 items-center md:grid-rows-none grid-cols-[repeat(auto-fit,minmax(375px,1fr))]"
+      class="grid gap-4 items-center md:grid-rows-none grid-cols-[repeat(auto-fit,minmax(350px,1fr))]"
     >
       <article class="flex flex-1">
         <VideoPlayer v-if="strYoutube" :str-youtube="strYoutube" />
