@@ -17,12 +17,10 @@
     "@phosphor-icons/vue": "^2.1.6",
     "@vueuse/core": "^10.7.2",
     "@vueuse/motion": "^2.0.0",
-    "apexcharts": "^3.41.0",
     "axios": "^1.4.0",
     "pinia": "^2.1.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.2",
-    "vue3-apexcharts": "^1.4.1",
     "youtube-vue3": "^0.1.15"
   },
   "devDependencies": {
