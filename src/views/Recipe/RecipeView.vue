@@ -1,43 +1,29 @@
 <template>
   <LayoutContainer>
     <template #content>
-      <p v-if="isLoading">Loading...</p>
+      <template v-if="isLoading">
+        <LoadingView />
+      </template>
       <p v-else-if="isError">error : {{ JSON.stringify(isError.value) }}...</p>
       <p v-else-if="!meals">No se encontro la receta</p>
       <template v-else>
-        <template
-          :key="idMeal"
-          v-for="{ strMealThumb, strMeal, idMeal, strArea, strInstructions, strYoutube } in meals"
-        >
-          <article
-            v-motion
-            :initial="{
-              opacity: 0,
-              y: 115
-            }"
-            :enter="{
-              opacity: 1,
-              y: 0,
-              transition: {
-                type: 'spring',
-                stiffness: '50',
-                delay: 100
-              }
-            }"
-            class="flex flex-col w-full flex-1"
-          >
-            <HeadingTitle
-              :str-meal="strMeal"
-              :str-area="strArea"
-              :str-meal-thumb="strMealThumb"
-              :id-meal="idMeal"
-              :str-youtube="strYoutube"
-            />
+        <template :key="idMeal" v-for="{ strMealThumb, strMeal, idMeal, strArea, strInstructions, strYoutube } in meals">
+          <article v-motion :initial="{
+            opacity: 0,
+            y: 115
+          }" :enter="{
+  opacity: 1,
+  y: 0,
+  transition: {
+    type: 'spring',
+    stiffness: '50',
+    delay: 100
+  }
+}" class="flex flex-col w-full flex-1">
+            <HeadingTitle :str-meal="strMeal" :str-area="strArea" :str-meal-thumb="strMealThumb" :id-meal="idMeal"
+              :str-youtube="strYoutube" />
             <div class="flex flex-col w-full min-h-96 bg-slate-100">
-              <RecipeContainer
-                :str-instructions="strInstructions"
-                :str-ingredients="ingredientsFiltered"
-              />
+              <RecipeContainer :str-instructions="strInstructions" :str-ingredients="ingredientsFiltered" />
             </div>
           </article>
         </template>
@@ -56,6 +42,7 @@ import HeadingTitle from './components/HeadingTitle.vue'
 import $axios from '@/services/axios.api'
 import RecipeContainer from '@/components/Recipe/RecipeContainer.vue'
 import { apiURLEndpoint } from '@/utils/api.utils'
+import LoadingView from '../LoadingView.vue'
 
 const route = useRoute()
 

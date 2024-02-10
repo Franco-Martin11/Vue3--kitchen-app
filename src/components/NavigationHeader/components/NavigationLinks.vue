@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="hidden md:flex flex-1 justify-center flex-row gap-6 items-center font-body font-bold text-md text-white"
+    class="hidden md:flex flex-1 justify-center flex-row gap-6 items-center font-body font-bold text-md text-white min-h-[48px] h-full"
   >
     <a href="/" target="_blank"> Recipes</a>
     <a href="/" target="_blank">Blog</a>

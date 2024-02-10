@@ -39,7 +39,7 @@
                     :src="`https://flagcdn.com/w20/${strISO.toLowerCase()}.webp`"
                     :alt="`flag of ${strArea} `"
                     srcset=""
-                    class="mr-2"
+                    class="mr-2 min-w-[20px]"
                   />
                   {{ strArea }}
                 </RouterLink>
