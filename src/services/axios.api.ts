@@ -1,4 +1,4 @@
-import type { ApiUrls } from '@/types/apiData'
+import type { ApiUrls } from '@/types/api.data.response'
 import axios from 'axios'
 
 //example
@@ -16,12 +16,12 @@ export const apiUrls: ApiUrls = {
   lookupMealById: () => `/lookup.php`,
   lookupRandomMeal: () => 'random.php',
   listAllMealCategories: () => '/categories.php',
-  listAllCategories: () => '/list.php?c=list',
+  listAllCategories: () => '/list.php',
   listAllAreas: () => '/list.php?a=list',
   listAllIngredients: () => '/list.php?i=list',
   filterByMainIngredient: () => '/filter.php?i=chicken_breast',
-  filterByCategory: () => '/filter.php?c=Seafood',
-  filterByArea: () => '/filter.php?a=Canadian'
+  filterByCategory: () => '/filter.php',
+  filterByArea: () => '/filter.php'
 }
 
 // export const getData = async () => {

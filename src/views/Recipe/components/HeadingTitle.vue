@@ -60,7 +60,8 @@
 <script setup lang="ts">
 import BagdeInstruction from '@/components/BagdeInstruction.vue'
 import VideoPlayer from '@/components/VideoPlayer.vue'
-import type { Meal } from '@/types/apiData'
+import type { Meal } from '@/types/api.data.response';
 import { RouterLink } from 'vue-router'
 defineProps<Pick<Meal, 'strMeal' | 'strMealThumb' | 'idMeal' | 'strArea' | 'strYoutube'>>()
 </script>
+@/types/api.data.response

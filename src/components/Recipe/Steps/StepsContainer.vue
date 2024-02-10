@@ -11,8 +11,8 @@
 <script setup lang="ts">
 import TitleHeading from '@/components/TitleHeading.vue'
 import StepByStep from './StepByStep.vue'
-import type { Meal } from '@/types/apiData'
 import { computed } from 'vue'
+import type { Meal } from '@/types/api.data.response';
 const props = defineProps<Pick<Meal, 'strInstructions'>>()
 
 const Instructions = computed((): string[] => {
@@ -26,3 +26,4 @@ const Instructions = computed((): string[] => {
   )
 })
 </script>
+@/types/api.data.response

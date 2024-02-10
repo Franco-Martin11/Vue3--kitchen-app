@@ -87,3 +87,13 @@ export interface MealCategory {
 export interface MealCategoriesResponse {
   meals: MealCategory[]
 }
+
+export interface FilterMealByCategory {
+  strMeal: string;
+  strMealThumb: string;
+  idMeal: string;
+}
+
+export interface FilterMealByCategoryResponse {
+  meals: FilterMealByCategory[];
+}

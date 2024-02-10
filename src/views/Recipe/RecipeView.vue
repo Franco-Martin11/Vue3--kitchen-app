@@ -50,7 +50,6 @@
 
 <script setup lang="ts">
 import LayoutContainer from '@/layout/LayoutContainer.vue'
-import type { Meal, MealsResponse } from '@/types/apiData'
 import { type AxiosResponse } from 'axios'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
@@ -59,6 +58,7 @@ import $axios from '@/services/axios.api'
 import RecipeContainer from '@/components/Recipe/RecipeContainer.vue'
 import { apiURLEndpoint } from '@/utils/api.utils'
 import LoadingView from '../LoadingView.vue'
+import type { Meal, MealsResponse } from '@/types/api.data.response'
 
 const route = useRoute()
 

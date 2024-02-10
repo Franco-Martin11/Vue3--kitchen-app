@@ -74,3 +74,4 @@ onMounted(async () => {
   }
 })
 </script>
+@/types/api.data.response
