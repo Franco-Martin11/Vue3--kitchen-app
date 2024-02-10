@@ -1,56 +1,29 @@
 <template>
   <nav class="inset-0 flex items-center justify-center">
-    <button
-      type="button"
-      @click="openModal"
-      class="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/75"
-    >
+    <button type="button" @click="openModal"
+      class="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-color-accent/75">
       <ph-list :size="28" />
     </button>
   </nav>
   <TransitionRoot appear :show="isOpen" as="template">
-    <Dialog as="div" @close="closeModal" class="relative z-10">
-      <TransitionChild
-        as="template"
-        enter="duration-300 ease-out"
-        enter-from="opacity-0"
-        enter-to="opacity-100"
-        leave="duration-200 ease-in"
-        leave-from="opacity-100"
-        leave-to="opacity-0"
-      >
+    <Dialog as="div" @close="closeModal" class="relative z-50">
+      <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
+        leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
         <div class="fixed inset-0 bg-black/25" />
       </TransitionChild>
 
       <div class="fixed inset-0 overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-1 text-center">
-          <TransitionChild
-            as="template"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0 scale-95"
-            enter-to="opacity-100 scale-100"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100 scale-100"
-            leave-to="opacity-0 scale-95"
-          >
+          <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95">
             <DialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all h-[98.5vh]"
-            >
+              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all h-[98.5vh]">
               <div class="flex flex-row justify-between w-full items-end">
-                <DialogTitle
-                  as="h3"
-                  class="text-xl font-medium font-heading leading-6 text-gray-900"
-                >
+                <DialogTitle as="h3" class="text-xl font-medium font-heading leading-6 text-gray-900">
                   Menu
                 </DialogTitle>
-                <button
-                  type="button"
-                  class="p-2 border-rose-100 border rounded-md"
-                  @click="closeModal"
-                >
-                  <!-- <button type="button"
-                                        class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                        @click="closeModal"> -->
+                <button type="button" class="p-2 border-rose-100 border rounded-md" @click="closeModal">
                   <ph-x :size="20" weight="bold" />
                 </button>
               </div>
@@ -59,6 +32,8 @@
                   Your payment has been successfully submitted. We’ve sent you an email with all of
                   the details of your order.
                 </p>
+                <hr />
+                <slot :emitEvent="emitEvent" name="menuOptions"></slot>
               </div>
             </DialogPanel>
           </TransitionChild>
@@ -71,7 +46,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
+import { defineEmits } from 'vue';
 
+const emitEvent = () => {
+  emits('custom-event');
+}
+
+const emits = defineEmits(['custom-event']);
 const isOpen = ref(false)
 
 function closeModal() {

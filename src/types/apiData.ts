@@ -79,3 +79,11 @@ export interface ApiUrls {
   filterByCategory: () => string
   filterByArea: () => string
 }
+
+export interface MealCategory {
+  strCategory: string
+}
+
+export interface MealCategoriesResponse {
+  meals: MealCategory[]
+}
