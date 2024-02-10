@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Meal } from '@/types/api.data.response';
+import type { Meal } from '@/types/api.data.response'
 import { computed } from 'vue'
 import { YoutubeVue3 } from 'youtube-vue3'
 const props = defineProps<Pick<Meal, 'strYoutube'>>()

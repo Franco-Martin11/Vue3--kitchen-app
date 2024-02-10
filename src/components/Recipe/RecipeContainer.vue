@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Meal } from '@/types/api.data.response';
+import type { Meal } from '@/types/api.data.response'
 import IngredientContainer from './Ingredient/IngredientContainer.vue'
 import StepsContainer from './Steps/StepsContainer.vue'
 defineProps<Pick<Meal, 'strInstructions'>>()

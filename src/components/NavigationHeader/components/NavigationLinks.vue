@@ -1,9 +1,10 @@
 <template>
   <nav
-    class="hidden lg:flex flex-1 justify-center flex-row gap-6 items-center font-body text-md text-white min-h-[48px] h-full">
-    <RouterLink to="/" > Recipes</RouterLink >
-    <RouterLink to="/" >Blog</RouterLink >
-    <RouterLink to="/" >Product</RouterLink >
+    class="hidden lg:flex flex-1 justify-center flex-row gap-6 items-center font-body text-md text-white min-h-[48px] h-full"
+  >
+    <RouterLink to="/"> Recipes</RouterLink>
+    <RouterLink to="/">Blog</RouterLink>
+    <RouterLink to="/">Product</RouterLink>
     <CategoryOption />
     <AreaOption />
     <a href="/" target="_blank">About</a>
@@ -27,7 +28,5 @@ import MenuDrawer from '@/components/MenuDrawer.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import CategoryOption from './OptionMenu/CategoryOption.vue'
 import AreaOption from './OptionMenu/AreaOption.vue'
-import { RouterLink } from 'vue-router';
-
+import { RouterLink } from 'vue-router'
 </script>
-

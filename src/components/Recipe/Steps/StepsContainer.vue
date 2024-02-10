@@ -12,7 +12,7 @@
 import TitleHeading from '@/components/TitleHeading.vue'
 import StepByStep from './StepByStep.vue'
 import { computed } from 'vue'
-import type { Meal } from '@/types/api.data.response';
+import type { Meal } from '@/types/api.data.response'
 const props = defineProps<Pick<Meal, 'strInstructions'>>()
 
 const Instructions = computed((): string[] => {

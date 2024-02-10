@@ -9,12 +9,15 @@
         <div class="px-1 py-1">
           <template :key="strCategory" v-for="{ strCategory } in category">
             <MenuItem v-slot="{ active }">
-            <RouterLink :to="`/category/c=${strCategory}`.toLowerCase()" :class="[
-              active ? 'bg-color-accent text-white' : 'text-gray-900',
-              'group flex w-full items-center rounded-md px-2 py-2 text-md font-body'
-            ]">
-              {{ strCategory }}
-            </RouterLink>
+              <RouterLink
+                :to="`/category/c=${strCategory}`.toLowerCase()"
+                :class="[
+                  active ? 'bg-color-accent text-white' : 'text-gray-900',
+                  'group flex w-full items-center rounded-md px-2 py-2 text-md font-body'
+                ]"
+              >
+                {{ strCategory }}
+              </RouterLink>
             </MenuItem>
           </template>
         </div>
@@ -39,7 +42,8 @@ const isError = ref<null | any>(null)
 const fetchData = async () => {
   try {
     const response: AxiosResponse<MealCategoriesResponse> = await $axios.get(
-      apiUrls.listAllCategories(), { params: { c: 'list' } }
+      apiUrls.listAllCategories(),
+      { params: { c: 'list' } }
     )
     category.value = response.data.meals
     isLoading.value = false

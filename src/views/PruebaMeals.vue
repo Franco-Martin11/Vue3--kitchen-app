@@ -46,12 +46,12 @@
 
 <script setup lang="ts">
 import LayoutContainer from '@/layout/LayoutContainer.vue'
-import type { Meal, MealsResponse } from '@/types/apiData'
 import { type AxiosResponse } from 'axios'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import $axios, { apiUrls } from '@/services/axios.api'
 import HeadingTitle from './Recipe/components/HeadingTitle.vue'
+import type { Meal, MealsResponse } from '@/types/api.data.response'
 
 const { params } = useRoute()
 

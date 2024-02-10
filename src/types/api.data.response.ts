@@ -89,11 +89,11 @@ export interface MealCategoriesResponse {
 }
 
 export interface FilterMealByCategory {
-  strMeal: string;
-  strMealThumb: string;
-  idMeal: string;
+  strMeal: string
+  strMealThumb: string
+  idMeal: string
 }
 
 export interface FilterMealByCategoryResponse {
-  meals: FilterMealByCategory[];
+  meals: FilterMealByCategory[]
 }
